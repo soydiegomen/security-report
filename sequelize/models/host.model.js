@@ -3,20 +3,34 @@ const { DataTypes } = require('sequelize');
 // We export a function that defines the model.
 // This function will automatically receive as parameter the Sequelize connection object.
 module.exports = (sequelize) => {
-	sequelize.define('game', {
-		// The following specification of the 'id' attribute could be omitted
-		// since it is the default.
+	sequelize.define('host', {
 		id: {
 			allowNull: false,
 			autoIncrement: true,
 			primaryKey: true,
 			type: DataTypes.INTEGER
 		},
-		name: {
-			allowNull: false,
+		status_state: {
+			allowNull: true,
 			type: DataTypes.STRING
 		},
-        description: {
+        status_reason: {
+			allowNull: true,
+			type: DataTypes.INTEGER
+		},
+        addr: {
+			allowNull: true,
+			type: DataTypes.STRING
+		},
+        addrtype: {
+			allowNull: true,
+			type: DataTypes.STRING
+		},
+        hostname: {
+			allowNull: true,
+			type: DataTypes.STRING
+		},
+        hostname_type: {
 			allowNull: true,
 			type: DataTypes.STRING
 		},

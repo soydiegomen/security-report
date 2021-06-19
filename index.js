@@ -7,6 +7,9 @@ var express = require('express'),
   fileUpload = require('express-fileupload'),
 	app = express();
 
+//var router = require('express').Router();
+var hostController = require('./routes/hosts.js');
+
 app.use(bodyParser.urlencoded({ extended: false }));  
 app.use(bodyParser.json());  
 app.use(methodOverride());
@@ -20,8 +23,8 @@ app.use(fileUpload());
 //Set pug engine
 app.set('view engine', 'pug');
 
-// Load the routes ("controllers" -ish)
-app.use('/games', require('./games/router'));
+//Define the routes
+app.use('/', require('./routes'));
 
 // Export the app instance for unit testing via supertest
 module.exports = app;

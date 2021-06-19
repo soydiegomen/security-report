@@ -5,18 +5,26 @@ const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: './database.sqlite',
-    logQueryParameters: false
+    logQueryParameters: false,
+    //the logging is turn off
+    logging: false
 });
 
 
 const modelDefiners = [
-    require('../games/game.model'),
+    require('./models/host.model'),
+    require('./models/port.model'),
 ];
 
 // We define all models according to their files.
 for (const modelDefiner of modelDefiners) {
 	modelDefiner(sequelize);
 }
+
+const { port, host } = sequelize.models;
+
+host.hasMany(port);
+port.belongsTo(host);
 
 // We export the sequelize connection instance to be used around our app.
 module.exports = sequelize;
