@@ -6,6 +6,11 @@ async function showHosts(req, res) {
     res.render('report_hosts', { hosts });
 }
 
+async function showHostDetails(req, res) {
+	const ports = await models.port.findAll();
+    res.render('report_host_details', { ports });
+}
+
 async function uploadReportFile(req, res) {	
 	var logFile = req.files.xmlFile;
 	
@@ -86,5 +91,6 @@ async function savePortsDetails(portsArray, host){
 
 module.exports = {
 	uploadReportFile,
-    showHosts
+    showHosts,
+    showHostDetails
 };

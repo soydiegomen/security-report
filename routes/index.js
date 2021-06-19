@@ -14,17 +14,10 @@ router.route('/ports')
 router.route('/reports/upload_report')
 	.post(reportsController.uploadReportFile);
 
-/* router.route('/reports/hosts')
-	.get(
-		(req, res) => {
-			let employees = hostController
-			employees.push({name: { first: 'Diego', last:'Mendoza' }, email: 'email', phone: 'phone', location: 'Jilotepec'});
-
-			res.render('report_hosts', { employees: employees });
-		}
-	); */
-
 router.route('/reports/hosts')
 	.get(reportsController.showHosts);
+
+router.route('/reports/host_details')
+	.get(reportsController.showHostDetails);
 
 module.exports = router;
