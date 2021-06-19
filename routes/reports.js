@@ -1,9 +1,12 @@
 const { models } = require('../sequelize');
 const parseString = require('xml2js').parseString;
 
-async function uploadReportFile(req, res) {
-    console.log("react to post action - loadFile");
-	
+async function showHosts(req, res) {
+	const hosts = await models.host.findAll({ include: models.port });
+    res.render('report_hosts', { hosts });
+}
+
+async function uploadReportFile(req, res) {	
 	var logFile = req.files.xmlFile;
 	
 	//console.log(logFile);
@@ -82,5 +85,6 @@ async function savePortsDetails(portsArray, host){
 }
 
 module.exports = {
-	uploadReportFile
+	uploadReportFile,
+    showHosts
 };
