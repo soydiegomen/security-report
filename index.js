@@ -23,6 +23,9 @@ app.use(fileUpload());
 //Set pug engine
 app.set('view engine', 'pug');
 
+//Serve statuc files
+app.use(express.static('public'));
+
 //Define the routes
 app.use('/', require('./routes'));
 
