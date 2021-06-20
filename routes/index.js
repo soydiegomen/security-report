@@ -17,7 +17,7 @@ router.route('/reports/upload_report')
 router.route('/reports/hosts')
 	.get(reportsController.showHosts);
 
-router.route('/reports/host_details')
+router.route('/reports/host_details/:hostId')
 	.get(reportsController.showHostDetails);
 
 module.exports = router;

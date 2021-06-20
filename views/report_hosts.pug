@@ -19,7 +19,8 @@ html(lang='en')
         tbody
           each host in hosts
             tr
-              td #{host.addr}
+              td 
+                a(href=`/reports/host_details/${host.id}`) #{host.addr}
               td #{host.addrtype}
               td #{host.hostname}
         tfoot

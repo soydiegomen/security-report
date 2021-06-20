@@ -7,7 +7,8 @@ async function showHosts(req, res) {
 }
 
 async function showHostDetails(req, res) {
-	const ports = await models.port.findAll();
+    const hostId = req.params.hostId;
+	const ports = await models.port.findAll({where: { hostId: hostId }});
     res.render('report_host_details', { ports });
 }
 
