@@ -31,7 +31,8 @@ header{
     color: #510f94;
 }
 .field span{
-    font-weight: bold;;
+    font-weight: bold;
+    margin: 0 5px 0 10px;
 }
 
 .fa-check-circle{
