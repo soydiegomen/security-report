@@ -8,8 +8,16 @@ async function showHosts(req, res) {
 
 async function showHostDetails(req, res) {
     const hostId = req.params.hostId;
-	const ports = await models.port.findAll({where: { hostId: hostId }});
-    res.render('report_host_details', { ports });
+    const host = await models.host.findByPk(hostId);
+
+    //Validate host exist
+    if(host){
+        const ports = await models.port.findAll({where: { hostId: hostId }});
+        res.render('report_host_details', { ports, host });
+    }else{
+        res.status(404).send();
+    }
+
 }
 
 async function uploadReportFile(req, res) {	
