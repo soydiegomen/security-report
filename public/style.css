@@ -6,7 +6,11 @@ header{
 }
 
 .page-title{
-    margin: 30px 0 40px;
+    margin: 30px 0 20px;
+}
+
+.items-list{
+    margin-top: 20px;
 }
 
 .host-block{
@@ -16,16 +20,36 @@ header{
     margin-bottom: 20px;
 }
 
-.link-host{
+.link-host, .link-host:visited, .port-name{
     color: #639;
     font-weight: bold;
     font-size: 24px;
     padding-left: 0;
+}
+
+.link-host:hover {
+    color: #510f94;
 }
 .field span{
     font-weight: bold;;
 }
 
 .fa-check-circle{
-    color: #5BC236;
+    color: #28a745;
+}
+
+/*Host Details style*/
+
+.host-subtitle{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #545454;
+}
+
+.fa-exclamation-triangle{
+    color: #dc3545;
+}
+
+.fa-exclamation-circle{
+    color: #ffc107;
 }
