@@ -14,7 +14,8 @@ app.listen(config.express.port, config.express.ip, async function (error) {
   }
   console.log('Node server running on http://' + config.express.ip + ':' +config.express.port);
 
-  //Create the DB if it does not exist
+  //Create the tables if they does not exist
   await sequelize.sync({});
+  //Drop tables and create the tables again
   //await sequelize.sync({ force: true });
 })

@@ -8,9 +8,7 @@ config.express = {
   ip: 'localhost'
 };
 
-
 if (PRODUCTION) {
-  // for example
   config.express.ip = '0.0.0.0';
 }
 

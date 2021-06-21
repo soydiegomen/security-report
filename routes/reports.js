@@ -22,13 +22,12 @@ async function showHostDetails(req, res) {
 
 async function uploadReportFile(req, res) {	
 	var logFile = req.files.xmlFile;
-	
-	//console.log(logFile);
 	var buffer = logFile.data;
+    //Read xml file
 	let fileContent = buffer.toString('utf8');
-	//console.log(fileContent);
 
 	let jsonReport = {};
+    //Parse xml string to json
 	parseString(fileContent, function (err, result) {
 		jsonReport = result;
 	});
@@ -48,6 +47,7 @@ async function saveHosts(hostsArray){
     let savedHosts = 0;
 
     for (const hostInfo of hostsArray) {
+        //TODO: Validete the JSON before try to get its attributes
 
         //Check the host details have the hostname info
         let hostname = null;

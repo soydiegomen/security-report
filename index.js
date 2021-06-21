@@ -7,7 +7,6 @@ var express = require('express'),
   fileUpload = require('express-fileupload'),
 	app = express();
 
-//var router = require('express').Router();
 var hostController = require('./routes/hosts.js');
 
 app.use(bodyParser.urlencoded({ extended: false }));  

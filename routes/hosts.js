@@ -1,6 +1,7 @@
 const { models } = require('../sequelize');
 
 async function create(req, res) {
+	//TODO: Validate the inputs
 	const host = await models.host.create(req.body);
 	res.status(201).json(host);
 }

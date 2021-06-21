@@ -1,7 +1,7 @@
 const { models } = require('../sequelize');
 
 async function create(req, res) {
-
+	//TODO: Validate the inputs
 	const port = await models.port.create(req.body);
 	res.status(201).json(port);
 }
